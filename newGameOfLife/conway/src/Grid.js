@@ -3,7 +3,7 @@ import Box from './Box'
 
 export class Grid extends Component {
     render() {
-        const width = this.props.cols * 16;
+        const width = this.props.cols * 11;
         let rowsArr = [];
         let boxClass = '';
         for(let i = 0; i < this.props.rows; i++){

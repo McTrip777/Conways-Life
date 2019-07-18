@@ -13,9 +13,6 @@ export class App extends Component {
       grid: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
     }
   }
-  componentDidMount = () => {
-  
-  }
 
   playButton = () => {
     this.intervalId = setInterval(this.play, this.speed)
@@ -23,12 +20,10 @@ export class App extends Component {
   pauseButton = () => {
     clearInterval(this.intervalId);
   }
-  // gridSize = () => {
 
-  // }
   clearButton = () => {
     let gridClear = Array(this.rows).fill().map(() => Array(this.cols).fill(false))
-    
+    clearInterval(this.intervalId);
     this.setState({
       grid:gridClear,
       generation:0
@@ -96,22 +91,37 @@ j   | 2 | 3 | 4 |
       case "1":
         this.cols = 15;
         this.rows = 15;
+        clearInterval(this.intervalId);
         this.setState({
-          grid:Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+          grid:Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+          generation:0
         })
       break;
       case "2":
         this.cols = 25;
         this.rows = 25;
+        clearInterval(this.intervalId);
         this.setState({
-          grid:Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+          grid:Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+          generation:0
+        })
+      break;
+      case "3":
+        this.cols = 30;
+        this.rows = 30;
+        clearInterval(this.intervalId);
+        this.setState({
+          grid:Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+          generation:0
         })
       break;
       default:
-        this.cols = 30;
-        this.rows = 30;
+        this.cols = 50;
+        this.rows = 50;
+        clearInterval(this.intervalId);
         this.setState({
-          grid:Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+          grid:Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+          generation:0
         })
       break;
     }
@@ -146,33 +156,8 @@ j   | 2 | 3 | 4 |
               <option value='1'>15x15</option>
               <option value='2'>25x25</option>
               <option value='3'>30x30</option>
+              <option value='4'>50x50</option>
             </select>
-          </div>
-        </div>
-        <div className="section2 section">
-          <div className="preset1 preset">
-            <div className="presetBox presetBox1">
-
-            </div>
-            <button>Preset 1</button>
-          </div>
-          <div className="preset2 preset">
-            <div className="presetBox presetBox2">
-
-            </div>
-            <button>Preset 2</button>
-          </div>
-          <div className="preset3 preset">
-            <div className="presetBox presetBox3">
-
-            </div>
-            <button>Preset 3</button>
-          </div>
-          <div className="preset4 preset">
-            <div className="presetBox presetBox4">
-
-            </div>
-            <button>Preset 4</button>
           </div>
         </div>
         <div className="section3 section">
