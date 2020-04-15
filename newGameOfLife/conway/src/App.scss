@@ -104,6 +104,7 @@
         width:100%;
         border: none;
         .buttons{
+          box-sizing: border-box;
           width:90%;
           margin: 1rem auto 0
         }
