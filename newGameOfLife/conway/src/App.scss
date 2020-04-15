@@ -14,6 +14,7 @@
     display:flex;
     justify-content: center;
     margin-top:4rem;
+    // height:100%;
   
     .section{
       display: flex;
@@ -26,7 +27,6 @@
       border-right: none;
       .block{
         width:100%;
-        height:60vh;
   
         .box {
           display: inline-block;
@@ -86,7 +86,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        width:60%;
+        width:80%;
         height: 100%;
         margin: 0 auto;
         p{
