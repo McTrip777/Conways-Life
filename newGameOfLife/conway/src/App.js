@@ -6,10 +6,11 @@ export class App extends Component {
   constructor() {
     super();
     this.speed = 120;
-    this.rows = 50
-    this.cols = 50
+    this.rows = 30
+    this.cols = 30
     this.state = {
       generation: 0,
+      isDisabled: false,
       grid: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
     }
   }
@@ -87,6 +88,14 @@ export class App extends Component {
   }
 
   gridSize = size => {
+    if (window.innerWidth < 550) {
+      this.setState({ isDisabled: true })
+      size = "0"
+      alert("Resize window for larger grid")
+    }
+    if (window.innerWidth >= 550) {
+      this.setState({ isDisabled: false })
+    }
     switch (size) {
       case "1":
         this.cols = 15;
@@ -106,7 +115,7 @@ export class App extends Component {
           generation: 0
         })
         break;
-      case "3":
+      default:
         this.cols = 30;
         this.rows = 30;
         clearInterval(this.intervalId);
@@ -115,7 +124,7 @@ export class App extends Component {
           generation: 0
         })
         break;
-      default:
+      case "3":
         this.cols = 50;
         this.rows = 50;
         clearInterval(this.intervalId);
@@ -133,6 +142,8 @@ export class App extends Component {
   }
 
   render() {
+    console.log(window.innerWidth)
+
     return (
       <div className="App">
         <h1>CONWAY'S GAME OF LIFE</h1>
@@ -156,8 +167,9 @@ export class App extends Component {
                 <option value='' selected disabled>Pick a Size</option>
                 <option value='1'>15x15</option>
                 <option value='2'>25x25</option>
-                <option value='3'>30x30</option>
-                <option value='4'>50x50</option>
+                <option value=''>30x30</option>
+                <option value='3' disabled={this.state.isDisabled}>50x50</option>
+
               </select>
             </div>
           </div>
