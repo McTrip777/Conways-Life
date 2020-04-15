@@ -164,7 +164,7 @@ export class App extends Component {
               <button onClick={this.random}>Random</button>
               <button onClick={this.clearButton}>Clear</button>
               <select onChange={this.sizeChange}>
-                <option value='' selected disabled>Pick a Size</option>
+                <option value='' selected disabled>Size</option>
                 <option value='1'>15x15</option>
                 <option value='2'>25x25</option>
                 <option value=''>30x30</option>
