@@ -88,7 +88,7 @@ export class App extends Component {
   }
 
   gridSize = size => {
-    if (window.innerWidth < 550) {
+    if (window.innerWidth < 550 && size == "3") {
       this.setState({ isDisabled: true })
       size = "0"
       alert("Resize window for larger grid")
